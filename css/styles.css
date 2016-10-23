@@ -1,0 +1,232 @@
+html, body{
+    padding: 0;
+    margin: 0;
+}
+#wrapper{
+    width: 1024px;
+    height: 624px;
+    padding: 0;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url(../slide/back.png);
+    background-size: contain;
+    position: relative;
+}
+/*слайдер*/
+#slider{
+    width: 760px;
+    position: absolute;
+    top: 427px;
+    left: 126px;
+}
+/*метрическая шкала*/
+#figures{
+    width: 761px;
+    height: 21px;
+    box-sizing: border-box;
+    background-size: contain;
+    position: absolute;
+    top: 355px;
+    left: 132px;
+    margin: 0;
+}
+#figures img{
+    margin: 0;
+}
+/*ползунок слайда*/
+#slide{
+    background: url(../slide/roller%20red.png) 0 0 no-repeat;
+    background-size: cover;
+    width: 28px;
+    height: 30px;
+    position: absolute;
+    top: -5px;
+    left: -8px;
+    z-index: 1;
+}
+#figimg{
+    position: absolute;
+    z-index: 100;
+}
+/********************************************************************************/
+/*Кастомизация jQuery UI слайдера*/
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    border: none;
+    background: url(../slide/roller%20white.png) 0 0 no-repeat;
+    font-weight: normal;
+}
+.ui-widget-content{
+    background: transparent;
+}
+.ui-widget .ui-widget-content{
+    border: none !important;
+    outline: none !important;
+}
+.ui-slider .ui-slider-handle{
+    width: 90px;
+    height: 85px;
+}
+.ui-slider .ui-slider-handle{
+    top: -1.8em;
+    margin-left: -2em;
+}
+.ui-slider-horizontal .ui-state-default {
+    border: none;
+    background: transparent url(../slide/roller%20white.png) no-repeat scroll 50% 50%;
+
+}
+/* Убираем обводку вокруг ползунка возникающую после нажатия на него */
+.ui-state-focus{
+    outline: none;
+}
+.ui-slider-handle, .ui-slider.ui-state-disabled {
+    outline: none;
+}
+/********************************************************************************/
+/*радио-кнопки*/
+#date{
+    width: 433px;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 503px;
+    left: 295px;
+
+}
+.date-class{
+    width: 140px;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+}
+#btn1, #btn2, #btn3{
+    background-size: contain;
+}
+/*для каждой кнопки по картинке на 2 состояния - нажатая|отжатая кнопка*/
+#btn1{
+    background: url(../slide/day-button.png) 0 0 no-repeat;
+    background-size: contain;
+}
+#btn2{
+    background: url(../slide/week-button.png) 0 0 no-repeat;
+    background-size: contain;
+}
+#btn3{
+    background: url(../slide/mounth-button.png) 0 0 no-repeat;
+    background-size: contain;
+}
+#btn1.pushed{
+    background: url(../slide/day-pushed-button.png) 0 0 no-repeat;
+    background-size: contain;
+}
+#btn2.pushed{
+    background: url(../slide/week-pushed-button.png) 0 0 no-repeat;
+    background-size: contain;
+}
+#btn3.pushed{
+    background: url(../slide/mounth-pushed-button.png) 0 0 no-repeat;
+    background-size: contain;
+}
+
+/*Блок с изображнием несчатного деда-пациента*/
+#patient{
+    width: 750px;
+    height: 321px;
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    z-index: 110;
+    background: url(../slide/sad.png) 70% 0 no-repeat;
+    background-size: contain;
+}
+/*Изображение счастливого деда-пациента*/
+#patient.happy{
+    background: url(../slide/happy.png) 70% 0 no-repeat;
+    background-size: contain;
+}
+
+/*Блок с название лекарства в верхнем левом углу*/
+#patient-inf{
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#patient-inf h1{
+    margin: 0;
+    font-weight: bold;
+    font-size: 3.3em;
+}
+
+#patient-inf h1 sup{
+    font-size: 0.5em;
+}
+
+#patient-inf p{
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+/*Стрелки перехода*/
+.arrows{
+    width: 32px;
+    height: 59px;
+    background: url(../slide/arrow.png) 0 0 no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+}
+#leftArrow{
+    left: 8px;
+}
+#rightArrow{
+    right: 8px;
+    webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+/*Номер слайда в правом верхнем углу*/
+#slide-info{
+    width: 90px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font: 1.2em Tahoma, Helvetica, sans-serif;
+    color: white;
+}
+#slide-num p{
+    margin: 0;
+}
+/*Таблетка*/
+#draggable{
+    width: 80px;
+    height: 36px;
+    cursor: move;
+    position: absolute;
+    z-index: 1000;
+    background: url(../slide/pill.png) 0 0 no-repeat;
+    background-size: contain;
+    border: none;
+    top: 150px;
+    left: 120px;
+}
+#droppable{
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    top: 68px;
+    left: 487px;
+    z-index: 120;
+}
