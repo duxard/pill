@@ -2,7 +2,6 @@
  * Created by User on 10/23/2016.
  */
 
-var SLIDE_NUM, pillVisible;
 $(function() {
     var $redSlide = $("#slide"),
         $buttons = $("#date").find('div'),
@@ -13,6 +12,9 @@ $(function() {
         SLIDE_NUM = 1,
         pillVisible = true;
 
+    //настройка слайдера: сладер будет состоять из 21 деления
+    //каждое перемещение ползунка слайдера меняет координаты подсвечивающего блока
+    //на метрической оси
     $sliderElem.slider({
         animate: "fast",
         disabled: false,
@@ -88,17 +90,21 @@ $(function() {
             }
         }
     });
-    $draggableElem.draggable();
+
+    //настройка таблекти и области куда нужно будет перенести пилюлю чтоб ее скормить пациенту
+    $draggableElem.draggable(); // перемещаемая по экрану таблетка
     $droppableElem.droppable({
-        drop: function() {
+        drop: function() {      //когда таблетку пермещаем в нужное место и отпускаем - таблетка "съедается" (исчезает)
             $draggableElem.fadeOut(700, function(){
-                pillVisible = false;
-                $("#patient").addClass("happy");
+                pillVisible = false;    //таблетки больше не будет на экране
+                $("#patient").addClass("happy");  //Дед становится счастливым
             });
         }
     });
-    $buttons.on("click", toggleBtn);
+    $buttons.on("click", toggleBtn); //активация радио-кнопок
 
+    //При нажатии на левую стрелку, если есть такая возможность:
+    //меняем номер слайда, активируем слайдер, кнопки и таблетку (если ее еще не съели)
     $("#leftArrow").on('click', function(){
         if( SLIDE_NUM === 2){
             SLIDE_NUM = 1;
@@ -108,10 +114,11 @@ $(function() {
             if(pillVisible){
                 $draggableElem.draggable("enable");
             }
-        }else{
-            return;
         }
     });
+
+    //При нажатии на правую стрелку, если есть такая возможность:
+    //меняем номер слайда, блокируем слайдер, кнопки и таблетку (если ее еще не съели)
     $("#rightArrow").on('click', function(){
         if( SLIDE_NUM === 1){
             SLIDE_NUM = 2;
@@ -121,18 +128,16 @@ $(function() {
             if(pillVisible){
                 $draggableElem.draggable("disable");
             }
-        }else{
-            return;
         }
     });
 
-    function toggleBtn(){
-        if($(this).hasClass("pushed")){
-            return;
-        }
-        else{
+    //Функция для зажатия кнопок. Может бять зажата только одна из кнопок
+    //Прверяем есть ли у кнопки по которой мы кликнули класс "pushed":
+    //если есть - ничего не делаем, иначе назначаем ей данный класс, а у остальных кнопок его убираем
+    function toggleBtn() {
+        if (!($(this).hasClass("pushed"))) {
             $(this).addClass("pushed");
-            $buttons.not($(this)).each(function(){
+            $buttons.not($(this)).each(function () {
                 $(this).removeClass("pushed");
             });
         }

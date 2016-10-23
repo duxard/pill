@@ -2,6 +2,9 @@ html, body{
     padding: 0;
     margin: 0;
 }
+body{
+    background: linear-gradient(to right, #286BB5, #3679C2);
+}
 #wrapper{
     width: 1024px;
     height: 624px;
@@ -222,6 +225,7 @@ html .ui-button.ui-state-disabled:active {
     top: 150px;
     left: 120px;
 }
+/*Область куда надо будет переносить таблетку чтоб ее "съел" пациент*/
 #droppable{
     width: 110px;
     height: 110px;
