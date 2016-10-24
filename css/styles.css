@@ -166,7 +166,6 @@ html .ui-button.ui-state-disabled:active {
 
 #patient-inf h1{
     margin: 0;
-    font-weight: bold;
     font-size: 3.3em;
 }
 
@@ -200,17 +199,35 @@ html .ui-button.ui-state-disabled:active {
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+
+.font-for-slide-info{
+    font-family: Tahoma, Helvetica, sans-serif;
+}
+
 /*Номер слайда в правом верхнем углу*/
 #slide-info{
     width: 90px;
     position: absolute;
     top: 20px;
     right: 10px;
-    font: 1.2em Tahoma, Helvetica, sans-serif;
+    font-size: 1.2em;
     color: white;
 }
 #slide-num p{
     margin: 0;
+}
+/*Дополнительная информация о слайде*/
+#descr{
+    max-width: 221px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 68px;
+    right: 30px;
+    font-size: 0.8em;
+    color: #fff;
+    text-align: justify;
 }
 /*Таблетка*/
 #draggable{

@@ -9,8 +9,13 @@ $(function() {
         $droppableElem = $( "#droppable"),
         $sliderElem = $( "#slider" ),
         $slideNumber = $("#slide-info-num"),
+        $descr = $("#descr"),
         SLIDE_NUM = 1,
-        pillVisible = true;
+        pillVisible = true,
+        firstSlideDescr = "Вы можете «скормить» таблетку больному. Для этого перетащите ее в область лица деда",
+        secondSlideDescr = "\"Залоченный\" слайд";
+
+    $descr.text(firstSlideDescr);
 
     //настройка слайдера: сладер будет состоять из 21 деления
     //каждое перемещение ползунка слайдера меняет координаты подсвечивающего блока
@@ -97,6 +102,8 @@ $(function() {
         drop: function() {      //когда таблетку пермещаем в нужное место и отпускаем - таблетка "съедается" (исчезает)
             $draggableElem.fadeOut(700, function(){
                 pillVisible = false;    //таблетки больше не будет на экране
+                firstSlideDescr = "Выберите количество пациентов и период";
+                $descr.text(firstSlideDescr);
                 $("#patient").addClass("happy");  //Дед становится счастливым
             });
         }
@@ -104,11 +111,12 @@ $(function() {
     $buttons.on("click", toggleBtn); //активация радио-кнопок
 
     //При нажатии на левую стрелку, если есть такая возможность:
-    //меняем номер слайда, активируем слайдер, кнопки и таблетку (если ее еще не съели)
+    //меняем номер слайда и информацию о нём, активируем слайдер, кнопки и таблетку (если ее еще не съели)
     $("#leftArrow").on('click', function(){
         if( SLIDE_NUM === 2){
             SLIDE_NUM = 1;
             $slideNumber.html("1");
+            $descr.text(firstSlideDescr);
             $sliderElem.slider("enable");
             $buttons.on("click", toggleBtn);
             if(pillVisible){
@@ -118,11 +126,12 @@ $(function() {
     });
 
     //При нажатии на правую стрелку, если есть такая возможность:
-    //меняем номер слайда, блокируем слайдер, кнопки и таблетку (если ее еще не съели)
+    //меняем номер слайда и информацию о нём, блокируем слайдер, кнопки и таблетку (если ее еще не съели)
     $("#rightArrow").on('click', function(){
         if( SLIDE_NUM === 1){
             SLIDE_NUM = 2;
             $slideNumber.html("2");
+            $descr.text(secondSlideDescr);
             $sliderElem.slider("disable");
             $buttons.off("click");
             if(pillVisible){
